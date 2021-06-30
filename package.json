@@ -1,0 +1,34 @@
+{
+  "name": "@savchukoleksii/shopify-theme-translations-tool",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "browser": {
+    "index.js": "src/index.js"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savchukoleksii/shopify-theme-translations-tool.git"
+  },
+  "author": "Oleksii Savchuk <savchukoleksii@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/savchukoleksii/shopify-theme-translations-tool/issues"
+  },
+  "homepage": "https://github.com/savchukoleksii/shopify-theme-translations-tool#readme",
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
+    "through2": "^4.0.2",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {
+    "core-js": "^3.15.2"
+  }
+}
