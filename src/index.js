@@ -77,17 +77,27 @@ export function get(name, params = {}) {
             return unescaped_translation;
         }
 
-        return Object.keys(params).filter((key) => {
+        const filtered_keys = Object.keys(params).filter((key) => {
             return !!key;
         }).filter((key) => {
             return ![undefined, null].includes(params[key]);
-        }).reduce((result = "", key) => {
+        });
+
+        if (!filtered_keys) {
+            return unescaped_translation;
+        }
+
+        if (!filtered_keys.length) {
+            return unescaped_translation;
+        }
+
+        return filtered_keys.reduce((result = "", key) => {
             let regex = new RegExp(`{{(\s+)?(${key})(\s+)?}}`, "gm");
 
             const value = params[key].replace(/$/gm, "$$");
 
             return result.replace(regex, value);
-        }, unescaped_translation);
+        }, unescaped_translation || "");
     } catch (e) {}
 
     return `"${name}" translation missed`;
