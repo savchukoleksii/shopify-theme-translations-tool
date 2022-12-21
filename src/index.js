@@ -84,7 +84,9 @@ export function get(name, params = {}) {
         }).reduce((result = "", key) => {
             let regex = new RegExp(`{{(\s+)?(${key})(\s+)?}}`, "gm");
 
-            return result.replaceAll(regex, params[key]);
+            const value = params[key].replace(/$/gm, "$$");
+
+            return result.replace(regex, value);
         }, unescaped_translation);
     } catch (e) {}
 
